@@ -7,32 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F2927CC630AAFBE82F390D2 /* Pods_mobileUpTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C24341B7B9556D401B0068 /* Pods_mobileUpTest.framework */; };
 		BA3B370F27EDE8EB00850CB4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */; };
 		BA3B373327EDF9D600850CB4 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373027EDF9D500850CB4 /* SFProDisplay-Semibold.ttf */; };
 		BA3B373427EDF9D600850CB4 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373127EDF9D600850CB4 /* SFProDisplay-Bold.ttf */; };
 		BA3B373527EDF9D600850CB4 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373227EDF9D600850CB4 /* SFProDisplay-Medium.ttf */; };
 		BA3B373827EDFFC000850CB4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B373627EDFFC000850CB4 /* LogInViewController.swift */; };
 		BA3B373927EDFFC000850CB4 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373727EDFFC000850CB4 /* LogInViewController.xib */; };
-		BA3B373B27EE04B600850CB4 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B373A27EE04B600850CB4 /* model.swift */; };
+		BA3B373B27EE04B600850CB4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B373A27EE04B600850CB4 /* Model.swift */; };
 		BA3B373E27EE59CF00850CB4 /* ResponseSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B373D27EE59CF00850CB4 /* ResponseSchema.swift */; };
 		BA3B374027EE5F2800850CB4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B373F27EE5F2800850CB4 /* Errors.swift */; };
+		BA5DFF1427EF158700CEEF9C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5DFF1327EF158700CEEF9C /* ViewModel.swift */; };
 		BAE01A5E27EDD3B6001496E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE01A5D27EDD3B6001496E3 /* AppDelegate.swift */; };
 		BAE01A6027EDD3B6001496E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE01A5F27EDD3B6001496E3 /* SceneDelegate.swift */; };
 		BAE01A6727EDD3B7001496E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE01A6627EDD3B7001496E3 /* Assets.xcassets */; };
 		BAE01A6A27EDD3B7001496E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE01A6827EDD3B7001496E3 /* LaunchScreen.storyboard */; };
 		BAED3E8827EE61DB00615DF8 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAED3E8727EE61DB00615DF8 /* InitialViewController.xib */; };
+		BAED3E8B27EE695000615DF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED3E8927EE695000615DF8 /* PhotoCollectionViewController.swift */; };
+		BAED3E8C27EE695000615DF8 /* PhotoCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAED3E8A27EE695000615DF8 /* PhotoCollectionViewController.xib */; };
+		BAED3E9327EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED3E9127EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift */; };
+		BAED3E9427EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAED3E9227EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42C24341B7B9556D401B0068 /* Pods_mobileUpTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobileUpTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4764384EFAF4A5C85A9BB089 /* Pods-mobileUpTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileUpTest.debug.xcconfig"; path = "Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		BA3B373027EDF9D500850CB4 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		BA3B373127EDF9D600850CB4 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		BA3B373227EDF9D600850CB4 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		BA3B373627EDFFC000850CB4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		BA3B373727EDFFC000850CB4 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
-		BA3B373A27EE04B600850CB4 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		BA3B373A27EE04B600850CB4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BA3B373D27EE59CF00850CB4 /* ResponseSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSchema.swift; sourceTree = "<group>"; };
 		BA3B373F27EE5F2800850CB4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		BA5DFF1327EF158700CEEF9C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BAE01A5A27EDD3B6001496E3 /* mobileUpTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileUpTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE01A5D27EDD3B6001496E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE01A5F27EDD3B6001496E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +49,11 @@
 		BAE01A6927EDD3B7001496E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE01A6B27EDD3B7001496E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAED3E8727EE61DB00615DF8 /* InitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
+		BAED3E8927EE695000615DF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		BAED3E8A27EE695000615DF8 /* PhotoCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewController.xib; sourceTree = "<group>"; };
+		BAED3E9127EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAED3E9227EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		E2A61886D0D5FA69CF674528 /* Pods-mobileUpTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileUpTest.release.xcconfig"; path = "Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +61,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2927CC630AAFBE82F390D2 /* Pods_mobileUpTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		398828DB2924F38833619B10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42C24341B7B9556D401B0068 /* Pods_mobileUpTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA3B372927EDF04F00850CB4 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +86,43 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		BA5DFF1027EF113400CEEF9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */,
+				BAED3E8727EE61DB00615DF8 /* InitialViewController.xib */,
+				BA3B373627EDFFC000850CB4 /* LogInViewController.swift */,
+				BAED3E8D27EE69EF00615DF8 /* PhotoCollectionVew */,
+				BA3B373727EDFFC000850CB4 /* LogInViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA5DFF1127EF147900CEEF9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA3B373A27EE04B600850CB4 /* Model.swift */,
+				BA3B373F27EE5F2800850CB4 /* Errors.swift */,
+				BA3B373D27EE59CF00850CB4 /* ResponseSchema.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA5DFF1227EF148500CEEF9C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA5DFF1327EF158700CEEF9C /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BAE01A5127EDD3B6001496E3 = {
 			isa = PBXGroup;
 			children = (
 				BAE01A5C27EDD3B6001496E3 /* mobileUpTest */,
 				BAE01A5B27EDD3B6001496E3 /* Products */,
+				D17D156183C13C0136309301 /* Pods */,
+				398828DB2924F38833619B10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,18 +140,43 @@
 				BA3B372927EDF04F00850CB4 /* fonts */,
 				BAE01A5D27EDD3B6001496E3 /* AppDelegate.swift */,
 				BAE01A5F27EDD3B6001496E3 /* SceneDelegate.swift */,
-				BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */,
-				BAED3E8727EE61DB00615DF8 /* InitialViewController.xib */,
-				BA3B373627EDFFC000850CB4 /* LogInViewController.swift */,
-				BA3B373727EDFFC000850CB4 /* LogInViewController.xib */,
-				BA3B373A27EE04B600850CB4 /* model.swift */,
-				BA3B373F27EE5F2800850CB4 /* Errors.swift */,
-				BA3B373D27EE59CF00850CB4 /* ResponseSchema.swift */,
+				BA5DFF1227EF148500CEEF9C /* ViewModel */,
+				BA5DFF1027EF113400CEEF9C /* View */,
+				BA5DFF1127EF147900CEEF9C /* Model */,
 				BAE01A6627EDD3B7001496E3 /* Assets.xcassets */,
 				BAE01A6827EDD3B7001496E3 /* LaunchScreen.storyboard */,
 				BAE01A6B27EDD3B7001496E3 /* Info.plist */,
 			);
 			path = mobileUpTest;
+			sourceTree = "<group>";
+		};
+		BAED3E8D27EE69EF00615DF8 /* PhotoCollectionVew */ = {
+			isa = PBXGroup;
+			children = (
+				BAED3E9027EE6B4700615DF8 /* Cell */,
+				BAED3E8927EE695000615DF8 /* PhotoCollectionViewController.swift */,
+				BAED3E8A27EE695000615DF8 /* PhotoCollectionViewController.xib */,
+			);
+			path = PhotoCollectionVew;
+			sourceTree = "<group>";
+		};
+		BAED3E9027EE6B4700615DF8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BAED3E9127EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift */,
+				BAED3E9227EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D17D156183C13C0136309301 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4764384EFAF4A5C85A9BB089 /* Pods-mobileUpTest.debug.xcconfig */,
+				E2A61886D0D5FA69CF674528 /* Pods-mobileUpTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAE01A6E27EDD3B7001496E3 /* Build configuration list for PBXNativeTarget "mobileUpTest" */;
 			buildPhases = (
+				64DCC29325B409BDBCB87402 /* [CP] Check Pods Manifest.lock */,
 				BAE01A5627EDD3B6001496E3 /* Sources */,
 				BAE01A5727EDD3B6001496E3 /* Frameworks */,
 				BAE01A5827EDD3B6001496E3 /* Resources */,
+				CB0043E1400874BCD3499406 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,21 +244,68 @@
 				BAED3E8827EE61DB00615DF8 /* InitialViewController.xib in Resources */,
 				BA3B373427EDF9D600850CB4 /* SFProDisplay-Bold.ttf in Resources */,
 				BAE01A6727EDD3B7001496E3 /* Assets.xcassets in Resources */,
+				BAED3E8C27EE695000615DF8 /* PhotoCollectionViewController.xib in Resources */,
 				BA3B373527EDF9D600850CB4 /* SFProDisplay-Medium.ttf in Resources */,
 				BA3B373927EDFFC000850CB4 /* LogInViewController.xib in Resources */,
+				BAED3E9427EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64DCC29325B409BDBCB87402 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobileUpTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB0043E1400874BCD3499406 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BAE01A5627EDD3B6001496E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA3B373B27EE04B600850CB4 /* model.swift in Sources */,
+				BA5DFF1427EF158700CEEF9C /* ViewModel.swift in Sources */,
+				BA3B373B27EE04B600850CB4 /* Model.swift in Sources */,
+				BAED3E9327EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift in Sources */,
 				BA3B373E27EE59CF00850CB4 /* ResponseSchema.swift in Sources */,
 				BAE01A5E27EDD3B6001496E3 /* AppDelegate.swift in Sources */,
+				BAED3E8B27EE695000615DF8 /* PhotoCollectionViewController.swift in Sources */,
 				BAE01A6027EDD3B6001496E3 /* SceneDelegate.swift in Sources */,
 				BA3B373827EDFFC000850CB4 /* LogInViewController.swift in Sources */,
 				BA3B370F27EDE8EB00850CB4 /* InitialViewController.swift in Sources */,
@@ -316,6 +445,7 @@
 		};
 		BAE01A6F27EDD3B7001496E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4764384EFAF4A5C85A9BB089 /* Pods-mobileUpTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -345,6 +475,7 @@
 		};
 		BAE01A7027EDD3B7001496E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A61886D0D5FA69CF674528 /* Pods-mobileUpTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

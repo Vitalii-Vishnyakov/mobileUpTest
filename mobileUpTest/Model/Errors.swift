@@ -8,4 +8,6 @@
 import Foundation
 enum Errors : Error{
     case faildToCreateUrl
+    case faildToGetToken
+    case faildToSaveToken
 }

@@ -12,12 +12,13 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
 
-    var token = ""
+    public var viewModel : ViewModelProtocol!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.getRequest { rezult in
+        viewModel.networkManager.getRequest { rezult in
             switch rezult {
                 
             case .success(let request):
@@ -35,19 +36,16 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.url){
-            
-            
-           
-            guard let url = webView.url?.absoluteURL else {
+            guard let url = webView.url?.absoluteURL  else {
                 return
             }
             
-            NetworkManager.encodeData(url: url) { response in
-                for item in response.response.items {
-                    print ( item.date)
+            if "\(url)".contains("access_token="){
+            
+                viewModel.setToken(from: "\(url)"){
+                    item in print(item)
                 }
             }
-            
         }
     }
     
