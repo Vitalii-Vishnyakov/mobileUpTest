@@ -31,7 +31,13 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
         
     }
     
+        
     
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.webView.removeObserver(self, forKeyPath: "URL")
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -42,8 +48,16 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
             
             if "\(url)".contains("access_token="){
             
-                viewModel.setToken(from: "\(url)"){
-                    item in print(item)
+                viewModel.setToken(from: "\(url)"){ [weak self] result in
+                    switch result{
+                    case .success(_):
+                        print("set New token")
+                        
+                        self?.dismiss(animated: true, completion: nil)
+                    case .failure(_):
+                        print("cantSet")
+                    }
+                    
                 }
             }
         }

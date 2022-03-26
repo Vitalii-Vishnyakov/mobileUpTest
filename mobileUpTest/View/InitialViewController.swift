@@ -13,17 +13,18 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if viewModel.isTokenValid{
-            let photoCollectionViewController = PhotoCollectionViewController(nibName: "PhotoCollectionViewController", bundle: nil)
-            
-           
-            navigationController?.pushViewController(photoCollectionViewController, animated: false)
-            //photoCollectionViewController.modalPresentationStyle = .fullScreen
-            //present(photoCollectionViewController, animated: true, completion: nil)
-        }
-        
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+      
+        if viewModel.isTokenValid{
+            let photoCollectionViewController = PhotoCollectionViewController(nibName: "PhotoCollectionViewController", bundle: nil)
+            photoCollectionViewController.viewModel = viewModel
+            navigationController?.pushViewController(photoCollectionViewController, animated: false)
+
+        }
+    }
+    
     
     
     @IBAction func pressEnterButton(_ sender: Any) {
