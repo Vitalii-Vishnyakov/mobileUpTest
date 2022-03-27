@@ -28,10 +28,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mobile Up  Gallery " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWo-fV-bt7">
-                    <rect key="frame" x="24" y="208" width="366" height="114"/>
+                    <rect key="frame" x="24" y="208" width="366" height="123"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="114" id="YFN-BI-ljQ"/>
+                        <constraint firstAttribute="height" constant="123" id="YFN-BI-ljQ"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="48"/>
@@ -68,7 +68,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rWo-fV-bt7" secondAttribute="trailing" constant="24" id="fFk-L2-YiI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a3L-EQ-YLh" secondAttribute="bottom" constant="50" id="vsq-N7-Uqo"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="130"/>
+            <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </view>
     </objects>
     <resources>

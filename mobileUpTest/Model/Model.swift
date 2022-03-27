@@ -9,14 +9,19 @@ import Foundation
 import Locksmith
 protocol NetworkManagerProtocol {
     var cleanToken : String {get set}
+    var  imageCash : NSCache<NSString,UIImage>{get set}
     func getRequest(completion : @escaping (Result<URLRequest,Error>) -> Void)
     func encodeData ( with token : String , completion : @escaping (PhotosResponse) -> Void)
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void)
     func getToken( ) -> (token: String , isValid : Bool)
+    func loadImagesWithCach ( urlStr : String , completion : @escaping (UIImage?) -> Void)
 }
 
 class NetworkManager : NetworkManagerProtocol{
+    var imageCash = NSCache<NSString, UIImage> ( )
+    
     var cleanToken = ""
+    
     init( ){
         do {
             try Locksmith.saveData(data: ["token" : "" , "expireDate" : 0 , "dateWhenRecive" : 0], forUserAccount: "userCreds")
@@ -65,6 +70,7 @@ class NetworkManager : NetworkManagerProtocol{
                     print("error in model logout")
                 }
             }
+            imageCash.removeAllObjects()
         }
     }
     private func writeKeyChain(token : String , expirDate: Int  ,dateWhenRecive : Int ,  completion : @escaping (Result<String,Errors>) -> Void){
@@ -95,6 +101,9 @@ class NetworkManager : NetworkManagerProtocol{
         var isValid = true
         if Int(Date().timeIntervalSince1970) - dateWhenRecive >= expireDate{
             isValid = false
+        }
+        if (!isValid){
+            imageCash.removeAllObjects()
         }
         return (token : token, isValid : isValid)
         
@@ -128,6 +137,36 @@ class NetworkManager : NetworkManagerProtocol{
             }
         }
         task.resume()
+        
+    }
+    func loadImagesWithCach ( urlStr : String , completion : @escaping (UIImage?) -> Void){
+        
+        if let cashedImage = imageCash.object(forKey: urlStr as NSString){
+            completion(cashedImage)
+            
+        }else {
+            guard let url = URL(string: urlStr) else {
+                return
+            }
+            
+            let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 10)
+            URLSession.shared.dataTask(with: request) { data, response , error in
+                guard let data = data else {
+                    
+                    return
+                }
+                guard let image = UIImage(data: data) else {
+                    
+                    return
+                }
+                self.imageCash.setObject(image, forKey: urlStr as NSString)
+                
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }.resume()
+        }
+        
         
     }
     

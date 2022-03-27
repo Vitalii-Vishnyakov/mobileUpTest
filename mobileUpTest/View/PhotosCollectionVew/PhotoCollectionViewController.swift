@@ -44,7 +44,9 @@ class PhotoCollectionViewController: UICollectionViewController {
             switch result {
                 
             case .success(_):
+                self?.viewModel.networkManager.imageCash.removeAllObjects()
                 self?.navigationController?.popViewController(animated: true)
+                
             case .failure(_):
                 print("error")
             }
@@ -56,7 +58,7 @@ class PhotoCollectionViewController: UICollectionViewController {
 
 extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
+    
         return 1
     }
 
@@ -68,24 +70,24 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoItemCollectionViewCell
-    
-        let imageData = try! Data(contentsOf: URL(string: viewModel.images[indexPath.row].sizes.last!.url)!)
-        DispatchQueue.main.async {
-            cell.imageView.contentMode = .scaleAspectFill
-            cell.imageView.image = UIImage(data: imageData)
-        }
+        cell.activityIndicator.startAnimating()
+        cell.activityIndicator.isHidden = false
+        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) { image in
+            cell.activityIndicator.stopAnimating()
+            cell.activityIndicator.isHidden = true
+            cell.imageView.image = image
             
+        }
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newvc = PhotoViewController(nibName: "PhotoViewController", bundle: nil)
-        let imageData = try! Data(contentsOf: URL(string: viewModel.images[indexPath.row].sizes.last!.url)!)
-        DispatchQueue.main.async {
-            newvc.imageView.contentMode = .scaleAspectFill
-            newvc.imageView.image = UIImage(data: imageData)
-        }
-        navigationController?.pushViewController(newvc, animated: true)
+        let photoViewController = PhotoViewController(nibName: "PhotoViewController", bundle: nil)
+        photoViewController.viewModel = viewModel
+        photoViewController.indexPath = indexPath.row
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .done, target: nil , action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.pushViewController(photoViewController, animated: true)
        
     }
 

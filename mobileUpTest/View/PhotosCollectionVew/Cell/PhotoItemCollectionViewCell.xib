@@ -19,18 +19,27 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bek-Hh-PA6">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PGa-Dy-V88">
+                        <rect key="frame" x="15" y="15" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="PGa-Dy-V88" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="34e-AK-rYc"/>
+                <constraint firstAttribute="bottom" secondItem="PGa-Dy-V88" secondAttribute="bottom" constant="15" id="H9v-rx-nQ7"/>
                 <constraint firstAttribute="trailing" secondItem="bek-Hh-PA6" secondAttribute="trailing" id="Ixm-8t-r4A"/>
                 <constraint firstItem="bek-Hh-PA6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JOL-DA-pPM"/>
                 <constraint firstAttribute="bottom" secondItem="bek-Hh-PA6" secondAttribute="bottom" id="TYn-v3-kpX"/>
+                <constraint firstItem="PGa-Dy-V88" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Zuv-GF-Tnt"/>
                 <constraint firstItem="bek-Hh-PA6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gG3-JJ-KpW"/>
+                <constraint firstAttribute="trailing" secondItem="PGa-Dy-V88" secondAttribute="trailing" constant="15" id="vKd-kL-Qh5"/>
             </constraints>
             <connections>
+                <outlet property="activityIndicator" destination="PGa-Dy-V88" id="FUP-vb-Mrl"/>
                 <outlet property="imageView" destination="bek-Hh-PA6" id="dva-Nn-ItY"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>

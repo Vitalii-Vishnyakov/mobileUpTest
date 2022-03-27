@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WebKit
 protocol ViewModelProtocol {
     var isTokenValid : Bool {get set}
     var images : [Item] {get set }
@@ -55,6 +56,7 @@ class ViewModel : ViewModelProtocol {
                 self?.token = token
                 self?.isTokenValid = false
                 print("succes logout")
+                self?.cleanWebViewCash()
                 completion( .success(token))
             case .failure(let error):
                 completion(.failure(error))
@@ -63,6 +65,17 @@ class ViewModel : ViewModelProtocol {
         }
         
     }
+    func cleanWebViewCash() {
+            HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+            print("[WebCacheCleaner] All cookies deleted")
+            
+            WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+                records.forEach { record in
+                    WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                    print("[WebCacheCleaner] Record \(record) deleted")
+                }
+            }
+        }
     
     
 
