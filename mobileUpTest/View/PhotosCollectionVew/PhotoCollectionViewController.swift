@@ -20,21 +20,40 @@ class PhotoCollectionViewController: UICollectionViewController {
         
         setUpNavigationBar( )
         self.collectionView!.register(UINib(nibName: "PhotoItemCollectionViewCell", bundle: nil),forCellWithReuseIdentifier:  reuseIdentifier)
-        viewModel.networkManager.encodeData(with: viewModel.token) { response in
-            self.viewModel.images = response.response.items
-            self.collectionView.reloadData()
+        viewModel.networkManager.encodeData(with: viewModel.token) { [weak self] result in
+            switch result{
+            case .success(let response):
+                self?.viewModel.images = response.response.items
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                if error == .faildToDecodeData{
+                    self?.showAlert(title: NSLocalizedString("failed_to_decode", comment: ""))
+                    self?.viewModel.images = [Item]()
+                }
+                else {
+                    self?.showAlert(title: NSLocalizedString("failed_to_load_data", comment: ""))
+                    self?.viewModel.images =  [Item]()
+                }
+                
+            }
+           
         }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+    }
+    func showAlert(title : String){
+        let alert  = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated : true , completion : nil)
     }
     
     private func setUpNavigationBar( ){
         navigationItem.title = "Mobile Up Gallery"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont (name: "SFProDisplay-Semibold", size: 18)!]
         navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem  = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitAction))
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem  = UIBarButtonItem(title: NSLocalizedString("exit", comment: ""), style: .plain, target: self, action: #selector(exitAction))
+        navigationItem.rightBarButtonItem?.tintColor = .label
         navigationItem.rightBarButtonItem?.width = 53
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "SFProDisplay-Medium", size: 18)!], for: .normal)
     }
@@ -72,11 +91,17 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoItemCollectionViewCell
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.isHidden = false
-        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) { image in
+        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) { [weak self] image in
             cell.activityIndicator.stopAnimating()
             cell.activityIndicator.isHidden = true
+            if image == nil {
+                self?.showAlert(title:  NSLocalizedString("broken_image", comment: ""))
+                cell.imageView.image = UIImage(systemName: "xmark")
+                cell.imageView.tintColor = .label
+                cell.imageView.alpha = 0.3
+            }else{
             cell.imageView.image = image
-            
+            }
         }
         return cell
     }
@@ -86,7 +111,7 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
         photoViewController.viewModel = viewModel
         photoViewController.indexPath = indexPath.row
         navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .done, target: nil , action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = .label
         navigationController?.pushViewController(photoViewController, animated: true)
        
     }

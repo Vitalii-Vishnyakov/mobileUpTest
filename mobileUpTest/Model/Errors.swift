@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 enum Errors : Error{
     case faildToCreateUrl
     case faildToGetToken
     case faildToSaveToken
+    case faildToLoadImageData
+    case faildToDecodeData
 }

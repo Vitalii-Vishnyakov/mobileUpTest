@@ -10,8 +10,8 @@ import Locksmith
 protocol NetworkManagerProtocol {
     var cleanToken : String {get set}
     var  imageCash : NSCache<NSString,UIImage>{get set}
-    func getRequest(completion : @escaping (Result<URLRequest,Error>) -> Void)
-    func encodeData ( with token : String , completion : @escaping (PhotosResponse) -> Void)
+    func getRequest(completion : @escaping (Result<URLRequest,Errors>) -> Void)
+    func encodeData ( with token : String , completion : @escaping (Result<PhotosResponse,Errors>) -> Void)
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void)
     func getToken( ) -> (token: String , isValid : Bool)
     func loadImagesWithCach ( urlStr : String , completion : @escaping (UIImage?) -> Void)
@@ -27,13 +27,13 @@ class NetworkManager : NetworkManagerProtocol{
             try Locksmith.saveData(data: ["token" : "" , "expireDate" : 0 , "dateWhenRecive" : 0], forUserAccount: "userCreds")
         }
         catch {
-         
+            
         }
     }
     
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void) {
         if url !=  cleanToken {
-           
+            
             let sepStr = url.components(separatedBy: CharacterSet(charactersIn: "#&"))
             var token = ""
             var expirDate = 0
@@ -59,7 +59,7 @@ class NetworkManager : NetworkManagerProtocol{
                     completion(.failure(error))
                 }
             }
-           
+            
         }else {
             writeKeyChain(token: cleanToken , expirDate: 0 , dateWhenRecive: 0) { result in
                 switch result {
@@ -111,29 +111,48 @@ class NetworkManager : NetworkManagerProtocol{
         
     }
     
-    func getRequest(completion : @escaping (Result<URLRequest,Error>) -> Void){
+    func getRequest(completion : @escaping (Result<URLRequest,Errors>) -> Void){
         guard let url = URL(string: "https://oauth.vk.com/oauth/authorize?client_id=8115470&redirect_uri=https://oauth.vk.com/blank.html&scope=12&display=mobile&response_type=token") else {
-            completion(.failure(Errors.faildToCreateUrl))
+            completion(.failure(.faildToCreateUrl))
             return
         }
         completion(.success(URLRequest(url: url)))
     }
     
-    func encodeData ( with token : String , completion : @escaping (PhotosResponse) -> Void){
-        let url  = URL(string:  "https://api.vk.com/method/photos.get?owner_id=-128666765&album_id=266276915&rev=false&extended=false&photo_sizes=true&access_token=\(token)&v=5.131")
-        let task = URLSession.shared.dataTask(with: url!) { data, resp, error in
-            if let data = data {
-                let photosResponse = try? JSONDecoder().decode(PhotosResponse.self, from: data)
-                guard let photosResponse = photosResponse else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    completion(photosResponse)
-                }
+    func encodeData ( with token : String , completion : @escaping (Result<PhotosResponse,Errors>) -> Void){
+        guard let url  = URL(string:  "https://api.vk.com/method/photos.get?owner_id=-128666765&album_id=266276915&rev=false&extended=false&photo_sizes=true&access_token=\(token)&v=5.131") else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, resp, error in
+            guard let resp = resp else {
+                return
+            }
+            
+            guard  let httpRsponse = resp as? HTTPURLResponse else {
+                return
                 
             }
-            else{
-                print("PHoto error")
+            
+            if httpRsponse.statusCode >= 200 && httpRsponse.statusCode < 300{
+                if let data = data {
+                    let photosResponse = try? JSONDecoder().decode(PhotosResponse.self, from: data)
+                    guard let photosResponse = photosResponse else {
+                        DispatchQueue.main.async {
+                            completion(.failure(.faildToDecodeData))
+                        }
+                        
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        completion(.success(photosResponse))
+                    }
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    completion(.failure(.faildToLoadImageData))
+                }
             }
         }
         task.resume()
@@ -152,11 +171,15 @@ class NetworkManager : NetworkManagerProtocol{
             let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 10)
             URLSession.shared.dataTask(with: request) { data, response , error in
                 guard let data = data else {
-                    
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
                     return
                 }
                 guard let image = UIImage(data: data) else {
-                    
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
                     return
                 }
                 self.imageCash.setObject(image, forKey: urlStr as NSString)

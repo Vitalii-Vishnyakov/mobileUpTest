@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  mobileUpTest
+
+  Created by Виталий on 27.03.2022.
+  
+*/
+"no_connection"  = "No internet connection" ;
+"enter_button" = "Login with VK";
+"dont_reg" = "You don't login";
+"failed_to_decode" = "Failed to decode images";
+"failed_to_load_data" = "Failed to load image data";
+"exit" = "Exit";
+"broken_image" = "Some images are broken";
+"saved_or_send" = "Done!";
+

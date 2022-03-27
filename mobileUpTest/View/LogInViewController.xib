@@ -21,13 +21,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gws-kl-wKv">
-                    <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                    <rect key="frame" x="0.0" y="48" width="428" height="844"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBr-ss-1lm">
+                    <rect key="frame" x="179" y="47" width="70" height="6"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="71L-qc-HTR"/>
+                        <constraint firstAttribute="height" constant="6" id="FxY-zS-fmg"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -35,12 +48,17 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gws-kl-wKv" secondAttribute="trailing" id="5HU-dN-xzn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gws-kl-wKv" secondAttribute="bottom" id="BHo-2O-ALa"/>
                 <constraint firstItem="Gws-kl-wKv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hvt-Y2-qGt"/>
-                <constraint firstItem="Gws-kl-wKv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qJE-Ch-FiO"/>
+                <constraint firstItem="Gws-kl-wKv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="qJE-Ch-FiO"/>
+                <constraint firstItem="jBr-ss-1lm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="3" id="rvG-k6-oFq"/>
+                <constraint firstItem="jBr-ss-1lm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zQ8-Ol-Fx3"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
+            <point key="canvasLocation" x="131.77570093457942" y="129.58963282937367"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

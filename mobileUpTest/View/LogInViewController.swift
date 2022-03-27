@@ -7,18 +7,18 @@
 
 import UIKit
 import WebKit
-class LogInViewController: UIViewController , WKNavigationDelegate {
+class LogInViewController: UIViewController  {
     
     @IBOutlet weak var webView: WKWebView!
     
-
+var logged = false
     public var viewModel : ViewModelProtocol!
-    
+    var completion : ((Bool) -> Void )!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.networkManager.getRequest { rezult in
+        viewModel.networkManager.getRequest { [unowned self] rezult in
             switch rezult {
                 
             case .success(let request):
@@ -38,11 +38,18 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.webView.removeObserver(self, forKeyPath: "URL")
+        if !logged{
+            completion(false)}
     }
     
+}
+
+
+extension LogInViewController : WKNavigationDelegate{
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.url){
             guard let url = webView.url?.absoluteURL  else {
+                self.completion(false)
                 return
             }
             
@@ -51,11 +58,11 @@ class LogInViewController: UIViewController , WKNavigationDelegate {
                 viewModel.setToken(from: "\(url)"){ [weak self] result in
                     switch result{
                     case .success(_):
-                        print("set New token")
-                        
+                        self?.logged = true
+                        self?.completion(true)
                         self?.dismiss(animated: true, completion: nil)
                     case .failure(_):
-                        print("cantSet")
+                        self?.completion(false)
                     }
                     
                 }

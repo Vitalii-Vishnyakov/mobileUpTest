@@ -42,26 +42,34 @@ class PhotoViewController: UIViewController{
     }
     
     @objc func sharingAction ( ){
-        let shareController = UIActivityViewController(activityItems: [self.currenImage], applicationActivities: nil)
-        shareController.completionWithItemsHandler = { _ , isDone , _ , _ in
+        guard let image = self.currenImage else {
+            return
+        }
+        let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        shareController.completionWithItemsHandler = {[weak self] _ , isDone , _ , _ in
             if isDone {
-                print("done")
+                self?.showAlert(title: NSLocalizedString("saved_or_send", comment: ""))
             }
         }
-        present(shareController, animated: true, completion: nil)
+            present(shareController, animated: true, completion: nil)
     }
     @objc func exitAction ( ){
         navigationController?.popViewController(animated: true)
     }
-   
+    func showAlert(title : String){
+        let alert  = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated : true , completion : nil)
+    }
     private func setUpNavigationBar( ){
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharingAction))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont (name: "SFProDisplay-Semibold", size: 18)!]
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = .label
         navigationItem.rightBarButtonItem?.width = 53
     }
     private func setUpTitle (new indexPath : Int ){
         let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale.current
         dateFormatterPrint.dateFormat = "d MMMM yyyy"
         let date = Date(timeIntervalSince1970: TimeInterval( viewModel.images[indexPath].date))
         navigationItem.title =  "\(dateFormatterPrint.string(from: date))"

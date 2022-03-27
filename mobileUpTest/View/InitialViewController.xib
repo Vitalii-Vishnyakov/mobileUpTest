@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InitialViewController" customModule="mobileUpTest" customModuleProvider="target">
             <connections>
+                <outlet property="enterButton" destination="a3L-EQ-YLh" id="0RV-RR-fja"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,16 +27,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mobile Up  Gallery " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWo-fV-bt7">
-                    <rect key="frame" x="24" y="208" width="366" height="123"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="123" id="YFN-BI-ljQ"/>
-                    </constraints>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="48"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-EQ-YLh">
                     <rect key="frame" x="24" y="756" width="366" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,23 +47,24 @@
                         <action selector="pressEnterButton:" destination="-1" eventType="touchUpInside" id="W9M-ZM-NDZ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up    Gallery " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG4-mz-j4j" userLabel="Mobile Up Gallery">
+                    <rect key="frame" x="24" y="208" width="366" height="115"/>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="48"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="a3L-EQ-YLh" secondAttribute="trailing" constant="24" id="9hv-Zc-pSd"/>
-                <constraint firstItem="rWo-fV-bt7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="164" id="Cu8-cA-YTt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VG4-mz-j4j" secondAttribute="trailing" constant="24" id="OpL-qA-A8f"/>
                 <constraint firstItem="a3L-EQ-YLh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="dLf-f4-cHB"/>
-                <constraint firstItem="rWo-fV-bt7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="ezj-kc-ndF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rWo-fV-bt7" secondAttribute="trailing" constant="24" id="fFk-L2-YiI"/>
+                <constraint firstItem="VG4-mz-j4j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="oEC-ZR-kyq"/>
+                <constraint firstItem="VG4-mz-j4j" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="164" id="tdi-eA-CzR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a3L-EQ-YLh" secondAttribute="bottom" constant="50" id="vsq-N7-Uqo"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
