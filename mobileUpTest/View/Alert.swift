@@ -12,6 +12,7 @@ func showAlert(title : String, target : UIViewController?){
         return
     }
     let alert  = UIAlertController(title: NSLocalizedString(title, comment: ""), message: nil, preferredStyle: .alert)
+    alert.view.tintColor = .label
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     target!.present(alert, animated : true , completion : nil)
 }

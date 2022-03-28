@@ -9,14 +9,21 @@ import Foundation
 import WebKit
 protocol ViewModelProtocol {
     var isTokenValid : Bool {get set}
+    var indexPath : Int {get set}
+    var currenImage : UIImage? {get set }
     var images : [Item] {get set }
     var token : String {get set}
     var networkManager : NetworkManagerProtocol {get set}
     func  setToken ( from url : String , completion : @escaping (Result<String,Errors>) -> Void )
     func logout ( completion: @escaping (Result<String,Errors>) -> Void)
+    func setUpTitle ( completion : (String) -> Void )
 }
 
 class ViewModel : ViewModelProtocol {
+    var currenImage: UIImage?
+    
+    var indexPath: Int = 0
+    
     
     var token = ""
     var isTokenValid: Bool
@@ -57,6 +64,7 @@ class ViewModel : ViewModelProtocol {
                 self?.isTokenValid = false
                 print("succes logout")
                 self?.cleanWebViewCash()
+                self?.networkManager.imageCash.removeAllObjects()
                 completion( .success(token))
             case .failure(let error):
                 completion(.failure(error))
@@ -77,7 +85,13 @@ class ViewModel : ViewModelProtocol {
             }
         }
     
-    
+    func setUpTitle (completion : (String) -> Void ){
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale.current
+        dateFormatterPrint.dateFormat = "d MMMM yyyy"
+        let date = Date(timeIntervalSince1970: TimeInterval( images[indexPath].date))
+        completion( "\(dateFormatterPrint.string(from: date))")
+    }
 
 }
 

@@ -11,28 +11,21 @@ class LogInViewController: UIViewController  {
     
     @IBOutlet weak var webView: WKWebView!
     
-var logged = false
+    var logged = false
     public var viewModel : ViewModelProtocol!
     var completion : ((Bool) -> Void )!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.networkManager.getRequest { [unowned self] rezult in
             switch rezult {
-                
             case .success(let request):
                 self.webView.load(request)
                 self.webView.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
             case .failure(_):
-                print("error")
+                print("Creshed Link")
             }
-        
-        
-    }
-    
-        
-    
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -41,9 +34,7 @@ var logged = false
         if !logged{
             completion(false)}
     }
-    
 }
-
 
 extension LogInViewController : WKNavigationDelegate{
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -52,9 +43,7 @@ extension LogInViewController : WKNavigationDelegate{
                 self.completion(false)
                 return
             }
-            
             if "\(url)".contains("access_token="){
-            
                 viewModel.setToken(from: "\(url)"){ [weak self] result in
                     switch result{
                     case .success(_):
@@ -64,7 +53,6 @@ extension LogInViewController : WKNavigationDelegate{
                     case .failure(_):
                         self?.completion(false)
                     }
-                    
                 }
             }
         }

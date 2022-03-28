@@ -27,23 +27,18 @@ class InitialViewController: UIViewController {
     @IBAction func pressEnterButton(_ sender: Any) {
         if Reachability.isConnectedToNetwork(){
             let logInViewController = LogInViewController(nibName: "LogInViewController", bundle: nil)
-            
             logInViewController.viewModel = viewModel
             logInViewController.completion = { [weak self] isLogged in
                 if isLogged{
                     self?.loadPhotoCollectionView()
-                    
                 }else{
-                    
                     showAlert(title:"dont_reg", target: self)
                 }
-                
             }
             present(logInViewController, animated: true, completion: nil)
         }
         else{
             showAlert(title:"no_connection", target: self)
-            
         }
     }
     func loadPhotoCollectionView( ){
@@ -51,13 +46,8 @@ class InitialViewController: UIViewController {
             let photoCollectionViewController = PhotoCollectionViewController(nibName: "PhotoCollectionViewController", bundle: nil)
             photoCollectionViewController.viewModel = viewModel
             navigationController?.pushViewController(photoCollectionViewController, animated: false)
-            
         }else {
-            
             showAlert(title:"no_connection", target: self)
         }
     }
-    
-
-    
 }

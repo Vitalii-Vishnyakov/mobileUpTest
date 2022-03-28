@@ -13,4 +13,5 @@
 "exit" = "Exit";
 "broken_image" = "Some images are broken";
 "saved_or_send" = "Done!";
+"logout_failed" = "Logout failed";
 
