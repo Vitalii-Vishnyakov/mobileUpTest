@@ -61,7 +61,7 @@ class PhotoViewController: UIViewController{
         viewModel.indexPath = indexPath
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
-        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath].sizes.last!.url, completion: {[weak self] image in
+        viewModel.loadImagesWithCach(at: indexPath, completion: {[weak self] image in
             self?.activityIndicator.stopAnimating()
             self?.activityIndicator.isHidden = true
             self?.imageView.image = image
@@ -82,7 +82,7 @@ extension PhotoViewController :  UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.isHidden = false
-        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) {[weak self] image in
+        viewModel.loadImagesWithCach(at : indexPath.row) {[weak self] image in
             cell.activityIndicator.stopAnimating()
             cell.activityIndicator.isHidden = true
             if image == nil {

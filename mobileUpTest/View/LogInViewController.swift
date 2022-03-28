@@ -17,9 +17,10 @@ class LogInViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.networkManager.getRequest { [unowned self] rezult in
+        viewModel.getRequest { [unowned self] rezult in
             switch rezult {
             case .success(let request):
+                print(request)
                 self.webView.load(request)
                 self.webView.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
             case .failure(_):
@@ -44,20 +45,16 @@ extension LogInViewController : WKNavigationDelegate{
                 return
             }
             if "\(url)".contains("access_token="){
-                viewModel.setToken(from: "\(url)"){ [weak self] result in
-                    switch result{
-                    case .success(_):
+                viewModel.setToken(from: "\(url)"){ [weak self] isTokenSeted in
+                    if isTokenSeted{
                         self?.logged = true
                         self?.completion(true)
-                        self?.dismiss(animated: true, completion: nil)
-                    case .failure(_):
+                        self?.dismiss(animated: true, completion: nil)}
+                    else {
                         self?.completion(false)
                     }
                 }
             }
         }
     }
-    
-    
-    
 }

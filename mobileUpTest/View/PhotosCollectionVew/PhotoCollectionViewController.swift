@@ -15,10 +15,9 @@ class PhotoCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         setUpNavigationBar( )
         self.collectionView!.register(UINib(nibName: "PhotoItemCollectionViewCell", bundle: nil),forCellWithReuseIdentifier:  reuseIdentifier)
-        viewModel.networkManager.encodeData(with: viewModel.token) { [weak self] result in
+        viewModel.encodeData() { [weak self] result in
             switch result{
-            case .success(let response):
-                self?.viewModel.images = response.response.items
+            case .success( _ ):
                 self?.collectionView.reloadData()
             case .failure(let error):
                 if error == .faildToDecodeData{
@@ -46,11 +45,10 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
     @objc func exitAction ( ){
         navigationController?.popViewController(animated: true)
-        viewModel.logout { [weak self] result in
-            switch result {
-            case .success(_):
+        viewModel.logout { [weak self] isLoggedOut in
+            if isLoggedOut{
                 self?.navigationController?.popViewController(animated: true)
-            case .failure(_):
+            }else{
                 showAlert(title: "logout_failed", target: self)
             }
         }
@@ -68,7 +66,7 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoItemCollectionViewCell
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.isHidden = false
-        viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) { [weak self] image in
+        viewModel.loadImagesWithCach(at: indexPath.row) { [weak self] image in
             cell.activityIndicator.stopAnimating()
             cell.activityIndicator.isHidden = true
             if image == nil {
@@ -92,13 +90,13 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize( width: UIScreen.main.bounds.width / 2 - 1, height: UIScreen.main.bounds.width / 2)
     }
-      
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
         return 2
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
         return 2
     }
-
+    
 }
