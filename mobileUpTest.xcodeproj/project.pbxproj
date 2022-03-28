@@ -10,7 +10,6 @@
 		9F2927CC630AAFBE82F390D2 /* Pods_mobileUpTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C24341B7B9556D401B0068 /* Pods_mobileUpTest.framework */; };
 		BA00769927F05EE600945699 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00769727F05EE600945699 /* CollectionViewCell.swift */; };
 		BA00769A27F05EE600945699 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA00769827F05EE600945699 /* CollectionViewCell.xib */; };
-		BA00769C27F061B800945699 /* ImageStoreSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00769B27F061B800945699 /* ImageStoreSchema.swift */; };
 		BA1A5A9027F0DA2500CF25BE /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A5A8F27F0DA2500CF25BE /* CheckInternetConnection.swift */; };
 		BA1A5A9427F0DFED00CF25BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA1A5A9627F0DFED00CF25BE /* Localizable.strings */; };
 		BA2D99B527F1AE570063AD4C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99B427F1AE570063AD4C /* Alert.swift */; };
@@ -42,7 +41,6 @@
 		4764384EFAF4A5C85A9BB089 /* Pods-mobileUpTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileUpTest.debug.xcconfig"; path = "Target Support Files/Pods-mobileUpTest/Pods-mobileUpTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BA00769727F05EE600945699 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BA00769827F05EE600945699 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		BA00769B27F061B800945699 /* ImageStoreSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreSchema.swift; sourceTree = "<group>"; };
 		BA1A5A8F27F0DA2500CF25BE /* CheckInternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternetConnection.swift; sourceTree = "<group>"; };
 		BA1A5A9527F0DFED00CF25BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA1A5A9727F0E00200CF25BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				BA3B373A27EE04B600850CB4 /* Model.swift */,
 				BA3B373F27EE5F2800850CB4 /* Errors.swift */,
 				BA3B373D27EE59CF00850CB4 /* ResponseSchema.swift */,
-				BA00769B27F061B800945699 /* ImageStoreSchema.swift */,
 				BA1A5A8F27F0DA2500CF25BE /* CheckInternetConnection.swift */,
 			);
 			path = Model;
@@ -345,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA00769C27F061B800945699 /* ImageStoreSchema.swift in Sources */,
 				BA5DFF1427EF158700CEEF9C /* ViewModel.swift in Sources */,
 				BA3B373B27EE04B600850CB4 /* Model.swift in Sources */,
 				BA2D99B527F1AE570063AD4C /* Alert.swift in Sources */,

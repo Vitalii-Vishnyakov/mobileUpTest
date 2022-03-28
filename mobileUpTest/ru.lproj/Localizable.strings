@@ -14,3 +14,4 @@
 "broken_image" = "Несколько картинок сломанные";
 "saved_or_send" = "Выполнено!";
 "logout_failed" = "Ошибка при выходе";
+"failed_to_save_or_sent" = "Ошибка при передачи";

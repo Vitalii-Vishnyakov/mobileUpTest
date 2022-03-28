@@ -8,7 +8,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class PhotoCollectionViewController: UICollectionViewController {
+final class PhotoCollectionViewController: UICollectionViewController {
     public var viewModel : ViewModelProtocol!
     
     override func viewDidLoad() {

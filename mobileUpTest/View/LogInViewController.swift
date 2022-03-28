@@ -7,7 +7,7 @@
 
 import UIKit
 import WebKit
-class LogInViewController: UIViewController  {
+final class LogInViewController: UIViewController  {
     
     @IBOutlet weak var webView: WKWebView!
     

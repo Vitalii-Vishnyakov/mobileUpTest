@@ -7,7 +7,7 @@
 
 import UIKit
 private let reuseIdentifier = "photoCell"
-class PhotoViewController: UIViewController{
+final class PhotoViewController: UIViewController{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,7 +24,7 @@ class PhotoViewController: UIViewController{
         setUpNavigationBar( )
         imageView.contentMode = .scaleAspectFill
         loadMainImage(new : viewModel.indexPath)
-        scrollView.contentInsetAdjustmentBehavior = .never
+        
         scrollView.delegate = self
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -42,6 +42,9 @@ class PhotoViewController: UIViewController{
         shareController.completionWithItemsHandler = {[weak self] _ , isDone , _ , _ in
             if isDone {
                 showAlert(title:"saved_or_send", target: self)
+            }
+            else{
+                showAlert(title:"failed_to_save_or_sent", target: self)
             }
         }
         present(shareController, animated: true, completion: nil)

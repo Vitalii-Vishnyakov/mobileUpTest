@@ -17,15 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let networkManager = NetworkManager()
+        let model = Model()
         
-        let viewModel = ViewModel(networkManager: networkManager)
-        
+        let viewModel = ViewModel(model: model)
         
         let initial = InitialViewController(nibName: "InitialViewController", bundle: nil)
         
         initial.viewModel = viewModel
-        
         
         window.rootViewController =  UINavigationController(rootViewController: initial)
         window.makeKeyAndVisible()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InitialViewController: UIViewController {
+final class InitialViewController: UIViewController {
     
     @IBOutlet weak var enterButton: UIButton!
     var viewModel : ViewModelProtocol!

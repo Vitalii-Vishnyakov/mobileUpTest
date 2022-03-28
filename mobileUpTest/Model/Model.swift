@@ -7,14 +7,14 @@
 
 import Foundation
 import Locksmith
-protocol NetworkManagerProtocol {
+protocol ModelProtocol {
     var cleanToken : String {get set}
     var  imageCash : NSCache<NSString,UIImage>{get set}
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void)
-    func getToken( ) -> (token: String , isValid : Bool)    
+    func getToken( ) -> (token: String , isValid : Bool)
 }
 
-class NetworkManager : NetworkManagerProtocol{
+final class Model : ModelProtocol{
     var imageCash = NSCache<NSString, UIImage> ( )
     
     var cleanToken = ""
@@ -79,18 +79,12 @@ class NetworkManager : NetworkManagerProtocol{
         }
     }
     func getToken() -> (token: String , isValid : Bool){
-        guard let dict = Locksmith.loadDataForUserAccount(userAccount: "userCreds") else {
-            return ("", false)
-        }
-        guard let token = dict["token"] as? String else {
-            return  ("", false)
-        }
-        guard let expireDate = dict["expireDate"] as? Int else {
-            return  ("", false)
-        }
-        guard let dateWhenRecive = dict["dateWhenRecive"] as? Int else {
-            return  ("", false)
-        }
+        guard let dict = Locksmith.loadDataForUserAccount(userAccount: "userCreds") ,
+              let token = dict["token"] as? String,  let expireDate = dict["expireDate"] as? Int ,
+              let dateWhenRecive = dict["dateWhenRecive"] as? Int else {
+                  imageCash.removeAllObjects()
+                  return ("", false)
+              }
         var isValid = true
         if Int(Date().timeIntervalSince1970) - dateWhenRecive > expireDate{
             isValid = false

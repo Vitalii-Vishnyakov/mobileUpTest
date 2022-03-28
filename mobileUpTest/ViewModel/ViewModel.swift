@@ -13,7 +13,7 @@ protocol ViewModelProtocol {
     var currenImage : UIImage? {get set }
     var images : [Item] {get set }
     var token : String {get set}
-    var networkManager : NetworkManagerProtocol {get set}
+    var model : ModelProtocol {get set}
     func  setToken ( from url : String , completion : @escaping (Bool) -> Void )
     func logout ( completion: @escaping (Bool) -> Void)
     func setUpTitle ( completion : (String) -> Void )
@@ -22,18 +22,18 @@ protocol ViewModelProtocol {
     func loadImagesWithCach ( at index : Int,  completion : @escaping (UIImage?) -> Void)
 }
 
-class ViewModel : ViewModelProtocol {
+final class ViewModel : ViewModelProtocol {
     var currenImage: UIImage?
     var indexPath: Int = 0
     var token = ""
     var isTokenValid: Bool
-    var networkManager: NetworkManagerProtocol
+    var model: ModelProtocol
     var images = [Item]()
     
-    init( networkManager: NetworkManagerProtocol ){
-        self.networkManager = networkManager
-        isTokenValid = self.networkManager.getToken().isValid
-        token = self.networkManager.getToken().token
+    init( model: ModelProtocol ){
+        self.model = model
+        isTokenValid = self.model.getToken().isValid
+        token = self.model.getToken().token
     }
     
     func getRequest(completion : @escaping (Result<URLRequest,Errors>) -> Void){
@@ -45,7 +45,7 @@ class ViewModel : ViewModelProtocol {
     }
     
     func setToken(from url: String, completion: @escaping (Bool) -> Void) {
-        networkManager.saveToken(url: url) { result in
+        model.saveToken(url: url) { result in
             switch result {
             case .success(let token):
                 self.token = token
@@ -58,14 +58,14 @@ class ViewModel : ViewModelProtocol {
     }
     
     func logout(completion: @escaping (Bool) -> Void) {
-        networkManager.saveToken(url: networkManager.cleanToken) { [weak self] result in
+        model.saveToken(url: model.cleanToken) { [weak self] result in
             switch result {
             case .success(let token):
                 self?.token = token
                 self?.isTokenValid = false
                 print("succes logout")
                 self?.cleanWebViewCash()
-                self?.networkManager.imageCash.removeAllObjects()
+                self?.model.imageCash.removeAllObjects()
                 completion( true)
             case .failure(_):
                 completion(false)
@@ -130,7 +130,7 @@ class ViewModel : ViewModelProtocol {
             completion(nil)
             return
         }
-        if let cashedImage = networkManager.imageCash.object(forKey: urlStr as NSString){
+        if let cashedImage = model.imageCash.object(forKey: urlStr as NSString){
             completion(cashedImage)
         }else {
             guard let url = URL(string: urlStr) else {
@@ -150,7 +150,7 @@ class ViewModel : ViewModelProtocol {
                     }
                     return
                 }
-                self?.networkManager.imageCash.setObject(image, forKey: urlStr as NSString)
+                self?.model.imageCash.setObject(image, forKey: urlStr as NSString)
                 DispatchQueue.main.async {
                     completion(image)
                 }

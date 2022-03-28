@@ -14,4 +14,6 @@
 "broken_image" = "Some images are broken";
 "saved_or_send" = "Done!";
 "logout_failed" = "Logout failed";
+"failed_to_save_or_sent" = "Failed to save share";
+
 
