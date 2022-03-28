@@ -13,6 +13,7 @@
 		BA00769C27F061B800945699 /* ImageStoreSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00769B27F061B800945699 /* ImageStoreSchema.swift */; };
 		BA1A5A9027F0DA2500CF25BE /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A5A8F27F0DA2500CF25BE /* CheckInternetConnection.swift */; };
 		BA1A5A9427F0DFED00CF25BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA1A5A9627F0DFED00CF25BE /* Localizable.strings */; };
+		BA2D99B527F1AE570063AD4C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99B427F1AE570063AD4C /* Alert.swift */; };
 		BA3B370F27EDE8EB00850CB4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */; };
 		BA3B373327EDF9D600850CB4 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373027EDF9D500850CB4 /* SFProDisplay-Semibold.ttf */; };
 		BA3B373427EDF9D600850CB4 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3B373127EDF9D600850CB4 /* SFProDisplay-Bold.ttf */; };
@@ -46,6 +47,7 @@
 		BA1A5A9527F0DFED00CF25BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA1A5A9727F0E00200CF25BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BA1A5A9827F0E00200CF25BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BA2D99B427F1AE570063AD4C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BA3B370D27EDE8EB00850CB4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		BA3B373027EDF9D500850CB4 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		BA3B373127EDF9D600850CB4 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				BA3B373727EDFFC000850CB4 /* LogInViewController.xib */,
 				BA425B1327EFAF9300EBC647 /* PhotoViewController */,
 				BAED3E8D27EE69EF00615DF8 /* PhotosCollectionVew */,
+				BA2D99B427F1AE570063AD4C /* Alert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				BA00769C27F061B800945699 /* ImageStoreSchema.swift in Sources */,
 				BA5DFF1427EF158700CEEF9C /* ViewModel.swift in Sources */,
 				BA3B373B27EE04B600850CB4 /* Model.swift in Sources */,
+				BA2D99B527F1AE570063AD4C /* Alert.swift in Sources */,
 				BA00769927F05EE600945699 /* CollectionViewCell.swift in Sources */,
 				BAED3E9327EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift in Sources */,
 				BA1A5A9027F0DA2500CF25BE /* CheckInternetConnection.swift in Sources */,

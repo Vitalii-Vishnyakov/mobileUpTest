@@ -30,6 +30,7 @@ class PhotoViewController: UIViewController{
         
         
         loadMainImage(new : indexPath)
+        scrollView.contentInsetAdjustmentBehavior = .never
         
         scrollView.delegate = self
         self.collectionView.delegate = self
@@ -48,7 +49,7 @@ class PhotoViewController: UIViewController{
         let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         shareController.completionWithItemsHandler = {[weak self] _ , isDone , _ , _ in
             if isDone {
-                self?.showAlert(title: NSLocalizedString("saved_or_send", comment: ""))
+                showAlert(title:"saved_or_send", target: self)
             }
         }
             present(shareController, animated: true, completion: nil)
@@ -56,13 +57,10 @@ class PhotoViewController: UIViewController{
     @objc func exitAction ( ){
         navigationController?.popViewController(animated: true)
     }
-    func showAlert(title : String){
-        let alert  = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated : true , completion : nil)
-    }
+    
     private func setUpNavigationBar( ){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharingAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Vector"), style: .plain, target: self, action: #selector(sharingAction))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharingAction))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont (name: "SFProDisplay-Semibold", size: 18)!]
         navigationItem.rightBarButtonItem?.tintColor = .label
         navigationItem.rightBarButtonItem?.width = 53
@@ -103,10 +101,14 @@ extension PhotoViewController :  UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
          cell.activityIndicator.startAnimating()
          cell.activityIndicator.isHidden = false
-         viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) { image in
+         viewModel.networkManager.loadImagesWithCach(urlStr: viewModel.images[indexPath.row].sizes.last!.url) {[weak self] image in
              cell.activityIndicator.stopAnimating()
              cell.activityIndicator.isHidden = true
+             if image == nil {
+                 showAlert(title:"broken_image", target: self)
+             }else{
              cell.imageView.image = image
+             }
              
          }
         return cell

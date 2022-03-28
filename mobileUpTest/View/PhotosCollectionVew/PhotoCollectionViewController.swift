@@ -27,11 +27,13 @@ class PhotoCollectionViewController: UICollectionViewController {
                 self?.collectionView.reloadData()
             case .failure(let error):
                 if error == .faildToDecodeData{
-                    self?.showAlert(title: NSLocalizedString("failed_to_decode", comment: ""))
+                    
+                    showAlert(title:"failed_to_decode", target: self)
                     self?.viewModel.images = [Item]()
                 }
                 else {
-                    self?.showAlert(title: NSLocalizedString("failed_to_load_data", comment: ""))
+    
+                    showAlert(title:"failed_to_load_data", target: self)
                     self?.viewModel.images =  [Item]()
                 }
                 
@@ -42,11 +44,7 @@ class PhotoCollectionViewController: UICollectionViewController {
         self.collectionView.dataSource = self
         
     }
-    func showAlert(title : String){
-        let alert  = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated : true , completion : nil)
-    }
+    
     
     private func setUpNavigationBar( ){
         navigationItem.title = "Mobile Up Gallery"
@@ -95,10 +93,10 @@ extension PhotoCollectionViewController : UICollectionViewDelegateFlowLayout {
             cell.activityIndicator.stopAnimating()
             cell.activityIndicator.isHidden = true
             if image == nil {
-                self?.showAlert(title:  NSLocalizedString("broken_image", comment: ""))
-                cell.imageView.image = UIImage(systemName: "xmark")
-                cell.imageView.tintColor = .label
-                cell.imageView.alpha = 0.3
+                
+                showAlert(title:"broken_image", target: self)
+                
+                
             }else{
             cell.imageView.image = image
             }

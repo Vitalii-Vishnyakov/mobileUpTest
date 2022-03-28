@@ -34,14 +34,16 @@ class InitialViewController: UIViewController {
                     self?.loadPhotoCollectionView()
                     
                 }else{
-                    self?.showAlert(title : NSLocalizedString("dont_reg", comment: ""))
+                    
+                    showAlert(title:"dont_reg", target: self)
                 }
                 
             }
             present(logInViewController, animated: true, completion: nil)
         }
         else{
-            showAlert(title : NSLocalizedString("no_connection", comment: ""))
+            showAlert(title:"no_connection", target: self)
+            
         }
     }
     func loadPhotoCollectionView( ){
@@ -51,15 +53,11 @@ class InitialViewController: UIViewController {
             navigationController?.pushViewController(photoCollectionViewController, animated: false)
             
         }else {
-            showAlert(title : NSLocalizedString("no_connection", comment: ""))
+            
+            showAlert(title:"no_connection", target: self)
         }
     }
     
-    func showAlert(title : String){
-        let alert  = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated : true , completion : nil)
-    }
-    
+
     
 }
