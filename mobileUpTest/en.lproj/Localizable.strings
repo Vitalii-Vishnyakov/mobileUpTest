@@ -11,9 +11,9 @@
 "failed_to_decode" = "Failed to decode images";
 "failed_to_load_data" = "Failed to load image data";
 "exit" = "Exit";
-"broken_image" = "Some images are broken";
+"broken_image" = "Some images are broken or still dawnloading";
 "saved_or_send" = "Done!";
 "logout_failed" = "Logout failed";
-"failed_to_save_or_sent" = "Failed to save share";
+"failed_to_save_or_sent" = "Share cancelled";
 
 

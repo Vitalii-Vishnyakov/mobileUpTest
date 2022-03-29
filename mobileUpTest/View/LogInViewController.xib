@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,17 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogInViewController" customModule="mobileUpTest" customModuleProvider="target">
             <connections>
+                <outlet property="progressView" destination="nLg-E3-aLG" id="Z0M-5R-Cb5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="Gws-kl-wKv" id="vty-Kn-d9d"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gws-kl-wKv">
-                    <rect key="frame" x="0.0" y="48" width="428" height="844"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -29,8 +31,8 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBr-ss-1lm">
-                    <rect key="frame" x="179" y="47" width="70" height="6"/>
-                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <rect key="frame" x="125" y="3" width="70" height="6"/>
+                    <color key="backgroundColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="71L-qc-HTR"/>
                         <constraint firstAttribute="height" constant="6" id="FxY-zS-fmg"/>
@@ -41,14 +43,24 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nLg-E3-aLG">
+                    <rect key="frame" x="0.0" y="530" width="320" height="4"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="4" id="uZR-Qd-J8A"/>
+                    </constraints>
+                    <color key="progressTintColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="0.63424026813912904" colorSpace="custom" customColorSpace="sRGB"/>
+                </progressView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gws-kl-wKv" secondAttribute="trailing" id="5HU-dN-xzn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gws-kl-wKv" secondAttribute="bottom" id="BHo-2O-ALa"/>
+                <constraint firstItem="nLg-E3-aLG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HQd-8w-WSg"/>
                 <constraint firstItem="Gws-kl-wKv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hvt-Y2-qGt"/>
-                <constraint firstItem="Gws-kl-wKv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="qJE-Ch-FiO"/>
+                <constraint firstAttribute="trailing" secondItem="nLg-E3-aLG" secondAttribute="trailing" id="mw6-A6-AvB"/>
+                <constraint firstItem="Gws-kl-wKv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qJE-Ch-FiO"/>
+                <constraint firstAttribute="bottom" secondItem="nLg-E3-aLG" secondAttribute="bottom" constant="34" id="rAZ-9N-uEX"/>
                 <constraint firstItem="jBr-ss-1lm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="3" id="rvG-k6-oFq"/>
                 <constraint firstItem="jBr-ss-1lm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zQ8-Ol-Fx3"/>
             </constraints>
@@ -56,9 +68,9 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

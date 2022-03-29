@@ -11,6 +11,7 @@ final class LogInViewController: UIViewController  {
     
     @IBOutlet weak var webView: WKWebView!
     
+    @IBOutlet weak var progressView: UIProgressView!
     var logged = false
     public var viewModel : ViewModelProtocol!
     var completion : ((Bool) -> Void )!
@@ -20,8 +21,8 @@ final class LogInViewController: UIViewController  {
         viewModel.getRequest { [unowned self] rezult in
             switch rezult {
             case .success(let request):
-                print(request)
                 self.webView.load(request)
+                self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
                 self.webView.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
             case .failure(_):
                 print("Creshed Link")
@@ -32,6 +33,7 @@ final class LogInViewController: UIViewController  {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.webView.removeObserver(self, forKeyPath: "URL")
+        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
         if !logged{
             completion(false)}
     }
@@ -54,6 +56,12 @@ extension LogInViewController : WKNavigationDelegate{
                         self?.completion(false)
                     }
                 }
+            }
+        }
+        if keyPath == "estimatedProgress" {
+            self.progressView.setProgress(Float(self.webView.estimatedProgress), animated: true)
+            if Float(self.webView.estimatedProgress) == 1.0 {
+                self.progressView.isHidden = true
             }
         }
     }

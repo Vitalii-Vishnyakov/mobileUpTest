@@ -25,6 +25,7 @@
 		BA425B1627EFAFD100EBC647 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA425B1427EFAFD100EBC647 /* PhotoViewController.swift */; };
 		BA425B1727EFAFD100EBC647 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA425B1527EFAFD100EBC647 /* PhotoViewController.xib */; };
 		BA5DFF1427EF158700CEEF9C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5DFF1327EF158700CEEF9C /* ViewModel.swift */; };
+		BAD00CBC27F35798003DA5A5 /* mobileUpTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD00CBB27F35798003DA5A5 /* mobileUpTestTests.swift */; };
 		BAE01A5E27EDD3B6001496E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE01A5D27EDD3B6001496E3 /* AppDelegate.swift */; };
 		BAE01A6027EDD3B6001496E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE01A5F27EDD3B6001496E3 /* SceneDelegate.swift */; };
 		BAE01A6727EDD3B7001496E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE01A6627EDD3B7001496E3 /* Assets.xcassets */; };
@@ -35,6 +36,16 @@
 		BAED3E9327EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED3E9127EE6B6000615DF8 /* PhotoItemCollectionViewCell.swift */; };
 		BAED3E9427EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAED3E9227EE6B6000615DF8 /* PhotoItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAD00CBD27F35798003DA5A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAE01A5227EDD3B6001496E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAE01A5927EDD3B6001496E3;
+			remoteInfo = mobileUpTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		42C24341B7B9556D401B0068 /* Pods_mobileUpTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobileUpTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +69,8 @@
 		BA425B1427EFAFD100EBC647 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		BA425B1527EFAFD100EBC647 /* PhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		BA5DFF1327EF158700CEEF9C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BAD00CB927F35798003DA5A5 /* mobileUpTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mobileUpTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAD00CBB27F35798003DA5A5 /* mobileUpTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobileUpTestTests.swift; sourceTree = "<group>"; };
 		BAE01A5A27EDD3B6001496E3 /* mobileUpTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileUpTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE01A5D27EDD3B6001496E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE01A5F27EDD3B6001496E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BAD00CB627F35798003DA5A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAE01A5727EDD3B6001496E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,10 +174,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BAD00CBA27F35798003DA5A5 /* mobileUpTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAD00CBB27F35798003DA5A5 /* mobileUpTestTests.swift */,
+			);
+			path = mobileUpTestTests;
+			sourceTree = "<group>";
+		};
 		BAE01A5127EDD3B6001496E3 = {
 			isa = PBXGroup;
 			children = (
 				BAE01A5C27EDD3B6001496E3 /* mobileUpTest */,
+				BAD00CBA27F35798003DA5A5 /* mobileUpTestTests */,
 				BAE01A5B27EDD3B6001496E3 /* Products */,
 				D17D156183C13C0136309301 /* Pods */,
 				398828DB2924F38833619B10 /* Frameworks */,
@@ -168,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE01A5A27EDD3B6001496E3 /* mobileUpTest.app */,
+				BAD00CB927F35798003DA5A5 /* mobileUpTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +250,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BAD00CB827F35798003DA5A5 /* mobileUpTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAD00CBF27F35798003DA5A5 /* Build configuration list for PBXNativeTarget "mobileUpTestTests" */;
+			buildPhases = (
+				BAD00CB527F35798003DA5A5 /* Sources */,
+				BAD00CB627F35798003DA5A5 /* Frameworks */,
+				BAD00CB727F35798003DA5A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAD00CBE27F35798003DA5A5 /* PBXTargetDependency */,
+			);
+			name = mobileUpTestTests;
+			productName = mobileUpTestTests;
+			productReference = BAD00CB927F35798003DA5A5 /* mobileUpTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BAE01A5927EDD3B6001496E3 /* mobileUpTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAE01A6E27EDD3B7001496E3 /* Build configuration list for PBXNativeTarget "mobileUpTest" */;
@@ -249,6 +297,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					BAD00CB827F35798003DA5A5 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = BAE01A5927EDD3B6001496E3;
+					};
 					BAE01A5927EDD3B6001496E3 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -269,11 +321,19 @@
 			projectRoot = "";
 			targets = (
 				BAE01A5927EDD3B6001496E3 /* mobileUpTest */,
+				BAD00CB827F35798003DA5A5 /* mobileUpTestTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BAD00CB727F35798003DA5A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAE01A5827EDD3B6001496E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +398,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BAD00CB527F35798003DA5A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAD00CBC27F35798003DA5A5 /* mobileUpTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAE01A5627EDD3B6001496E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,6 +429,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BAD00CBE27F35798003DA5A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAE01A5927EDD3B6001496E3 /* mobileUpTest */;
+			targetProxy = BAD00CBD27F35798003DA5A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BA1A5A9627F0DFED00CF25BE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -383,6 +459,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BAD00CC027F35798003DA5A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J7MCG624CD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vitalii.mobileUpTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobileUpTest.app/mobileUpTest";
+			};
+			name = Debug;
+		};
+		BAD00CC127F35798003DA5A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J7MCG624CD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vitalii.mobileUpTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobileUpTest.app/mobileUpTest";
+			};
+			name = Release;
+		};
 		BAE01A6C27EDD3B7001496E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -564,6 +676,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BAD00CBF27F35798003DA5A5 /* Build configuration list for PBXNativeTarget "mobileUpTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAD00CC027F35798003DA5A5 /* Debug */,
+				BAD00CC127F35798003DA5A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BAE01A5527EDD3B6001496E3 /* Build configuration list for PBXProject "mobileUpTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
