@@ -6,7 +6,7 @@
 - ![Telegram](https://img.shields.io/badge/-Telegram-black?style=for-the-badge&logo=telegram) __@vitalii_jpeg__
 - ![Mail.ru](https://img.shields.io/badge/-Mail-black??style=for-the-badge&logo=) __vitalii_vish@mail.ru__
 
-**Из дополнительных  библиотек использовал [__Locksmith__](https://github.com/matthewpalmer/Locksmith) для упрощения взаимодействия с __keyChain__**.
+**Из дополнительных  библиотек использовал [__KeychainSwift__](https://github.com/evgenyneu/keychain-swift) для упрощения взаимодействия с __keyChain__**.
 
 В репозиторий я добавил все файлы проекта, так как не знаю на что вы обратите внимание, но я понимаю, что например pod файлы не нужно загружать, ведь достаточно `pod install` и всё подгрузится.
 ### Постарался реализовать все пункты тз, включая дополнительные  
@@ -52,7 +52,7 @@
 ---
 | До выхода  | После | 
 | :---    | :----    |
-| ![](https://github.com/Vitalii-Vishnyakov/mobileUpTest/blob/main/screenShots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-03-29%20%D0%B2%2022.57.59.png?raw=true)     |   ![](https://github.com/Vitalii-Vishnyakov/mobileUpTest/blob/main/screenShots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-03-29%20%D0%B2%2022.58.33.png?raw=true)    |
+| ![](https://github.com/Vitalii-Vishnyakov/mobileUpTest/blob/main/screenShots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-03-30%20%D0%B2%2022.14.12.png?raw=true)     |   ![](https://github.com/Vitalii-Vishnyakov/mobileUpTest/blob/main/screenShots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-03-30%20%D0%B2%2022.15.02.png?raw=true)    |
 
 
 
