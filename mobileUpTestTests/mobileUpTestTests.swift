@@ -20,6 +20,7 @@ class mobileUpTestTests: XCTestCase {
     
     override func setUp() {
         testmodel = Model( )
+        testmodel.isTest = true
         testviewModel = ViewModel(model: testmodel)
     }
     override func tearDown() {

@@ -7,5 +7,6 @@ target 'mobileUpTest' do
 
   # Pods for mobileUpTest
 pod 'Locksmith'
+pod 'KeychainSwift'
 
 end

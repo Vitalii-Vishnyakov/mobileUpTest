@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let model = Model()
         
+        
         let viewModel = ViewModel(model: model)
         
         let initial = InitialViewController(nibName: "InitialViewController", bundle: nil)

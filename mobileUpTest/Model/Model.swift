@@ -6,28 +6,24 @@
 //
 
 import Foundation
-import Locksmith
+import KeychainSwift
 protocol ModelProtocol {
     var cleanToken : String {get set}
+    var isTest : Bool {get set}
+    var keyChain : KeychainSwift {get set}
     var  imageCash : NSCache<NSString,UIImage>{get set}
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void)
     func getToken( ) -> (token: String , isValid : Bool)
 }
 
 final class Model : ModelProtocol{
+    var keyChain = KeychainSwift()
+    var isTest: Bool = false
+    
     var imageCash = NSCache<NSString, UIImage> ( )
     
     var cleanToken = ""
     
-    init( ){
-        saveFieldForKeyChain ( )
-    }
-    private func saveFieldForKeyChain ( ){
-        do {
-            try Locksmith.saveData(data: ["token" : "" , "expireDate" : 0 , "dateWhenRecive" : 0], forUserAccount: "userCreds")
-        }
-        catch {}
-    }
     func saveToken(url: String, completion : @escaping (Result<String,Errors>) -> Void) {
         if url !=  cleanToken {
             let sepStr = url.components(separatedBy: CharacterSet(charactersIn: "#&"))
@@ -68,25 +64,30 @@ final class Model : ModelProtocol{
         }
     }
     private func writeKeyChain(token : String , expirDate: Int  ,dateWhenRecive : Int ,  completion : @escaping (Result<String,Errors>) -> Void){
-        do {
-            try Locksmith.updateData(data: ["token" : token , "expireDate" : expirDate , "dateWhenRecive" : dateWhenRecive], forUserAccount: "userCreds")
-            
+        let isTokenSuccess =  keyChain.set(token, forKey: "token\(isTest)", withAccess: nil)
+        let isExpirDateSuccess =  keyChain.set(String(expirDate), forKey: "expireDate\(isTest)", withAccess: nil)
+        let isDateWhenReciveSuccess = keyChain.set(String(dateWhenRecive), forKey: "dateWhenRecive\(isTest)", withAccess: nil)
+        if isTokenSuccess && isExpirDateSuccess && isDateWhenReciveSuccess{
             completion(.success(token))
         }
-        catch {
-            print("cant save empty")
+        else {
             completion(.failure(.faildToSaveToken))
         }
     }
     func getToken() -> (token: String , isValid : Bool){
-        guard let dict = Locksmith.loadDataForUserAccount(userAccount: "userCreds") ,
-              let token = dict["token"] as? String,  let expireDate = dict["expireDate"] as? Int ,
-              let dateWhenRecive = dict["dateWhenRecive"] as? Int else {
+        let token = keyChain.get("token\(isTest)")
+        let expireDate = keyChain.get("expireDate\(isTest)")
+        let dateWhenRecive = keyChain.get("dateWhenRecive\(isTest)")
+        guard expireDate != nil ,
+              dateWhenRecive != nil ,
+              let token = token,
+              let expireDateInt = Int(expireDate!) ,
+              let dateWhenReciveInt = Int(dateWhenRecive!) else {
                   imageCash.removeAllObjects()
                   return ("", false)
               }
         var isValid = true
-        if Int(Date().timeIntervalSince1970) - dateWhenRecive > expireDate{
+        if Int(Date().timeIntervalSince1970) - dateWhenReciveInt > expireDateInt{
             isValid = false
         }
         if (!isValid){

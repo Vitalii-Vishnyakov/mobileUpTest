@@ -26,7 +26,6 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="PGa-Dy-V88" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="34e-AK-rYc"/>
                 <constraint firstAttribute="bottom" secondItem="PGa-Dy-V88" secondAttribute="bottom" constant="15" id="H9v-rx-nQ7"/>
