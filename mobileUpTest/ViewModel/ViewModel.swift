@@ -18,7 +18,7 @@ protocol ViewModelProtocol {
     func logout ( completion: @escaping (Bool) -> Void)
     func setUpTitle ( completion : (String) -> Void )
     func getRequest(completion : @escaping (Result<URLRequest,Errors>) -> Void)
-    func encodeData ( completion : @escaping (Result<PhotosResponse,Errors>) -> Void)
+    func loadFromNet ( completion : @escaping (Result<PhotosResponse,Errors>) -> Void)
     func loadImagesWithCach ( at index : Int,  completion : @escaping (UIImage?) -> Void)
 }
 
@@ -91,7 +91,7 @@ final class ViewModel : ViewModelProtocol {
         completion( "\(dateFormatterPrint.string(from: date))")
     }
     
-    func encodeData (  completion : @escaping (Result<PhotosResponse,Errors>) -> Void){
+    func loadFromNet (  completion : @escaping (Result<PhotosResponse,Errors>) -> Void){
         guard let url  = URL(string:  "https://api.vk.com/method/photos.get?owner_id=-128666765&album_id=266276915&rev=false&extended=false&photo_sizes=true&access_token=\(self.token)&v=5.131") else {
             return
         }
@@ -139,9 +139,6 @@ final class ViewModel : ViewModelProtocol {
             let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 10)
             URLSession.shared.dataTask(with: request) {[weak self] data, response , error in
                 guard let data = data else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
                     return
                 }
                 guard let image = UIImage(data: data) else {

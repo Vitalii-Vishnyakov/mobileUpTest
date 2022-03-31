@@ -15,7 +15,7 @@ final class PhotoCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         setUpNavigationBar( )
         self.collectionView!.register(UINib(nibName: "PhotoItemCollectionViewCell", bundle: nil),forCellWithReuseIdentifier:  reuseIdentifier)
-        viewModel.encodeData() { [weak self] result in
+        viewModel.loadFromNet() { [weak self] result in
             switch result{
             case .success( _ ):
                 self?.collectionView.reloadData()
