@@ -6,7 +6,7 @@ target 'mobileUpTest' do
   use_frameworks!
 
   # Pods for mobileUpTest
-pod 'Locksmith'
+
 pod 'KeychainSwift'
 
 end
